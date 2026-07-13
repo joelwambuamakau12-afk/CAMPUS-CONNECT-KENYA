@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CampusConnect Kenya — From Campus to Career</title>
+  <meta name="description" content="CampusConnect Kenya connects students to internships, attachments, scholarships, jobs and mentors across the country." />
+  <meta name="theme-color" content="#0B3D2E" />
+  <meta name="author" content="CampusConnect Kenya" />
+
+  <!-- Open Graph tags: professional link-preview metadata when shared -->
+  <meta property="og:title" content="CampusConnect Kenya — From Campus to Career" />
+  <meta property="og:description" content="One board for every Kenyan student's next stage — internships, attachments, scholarships and jobs." />
+  <meta property="og:type" content="website" />
+
+<link rel="icon" type="image/svg+xml" href="default.svg" />
+
+  <!-- Fonts: Fraunces (display/editorial serif) + Inter (body/UI) + JetBrains Mono (data/labels) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Skip link: lets keyboard and screen-reader users jump straight past the
+       navigation to the main content, without needing to tab through every link -->
+  <a href="#top" class="skip-link">Skip to main content</a>
+
+  <!-- Ambient animated background — slow-moving colour blobs behind the whole page -->
+  <div class="ambient-bg" aria-hidden="true">
+    <span class="ambient-blob ambient-blob--1"></span>
+    <span class="ambient-blob ambient-blob--2"></span>
+    <span class="ambient-blob ambient-blob--3"></span>
+  </div>
+
+
+  <!-- ============================================================ -->
+  <!-- LOADING SCREEN -->
+  <!-- ============================================================ -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__mark">
+      <svg viewBox="0 0 60 60" class="loader__pin">
+        <circle cx="30" cy="30" r="26" class="loader__ring" />
+        <path d="M30 12 L30 30 L42 38" class="loader__hand" />
+      </svg>
+    </div>
+    <p class="loader__text">CampusConnect Kenya</p>
+    <div class="loader__bar"><span></span></div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- SCROLL PROGRESS BAR -->
+  <!-- ============================================================ -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Ambient cursor glow (desktop only, purely decorative) -->
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+  <!-- ============================================================ -->
+  <!-- TOAST / NOTIFICATION CONTAINER -->
+  <!-- ============================================================ -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- ============================================================ -->
+  <!-- NAVIGATION -->
+  <!-- ============================================================ -->
+  <header class="nav" id="siteNav">
+    <div class="nav__inner">
+      <a href="#top" class="nav__brand">
+        <span class="nav__brand-mark">CC</span>
+        <span class="nav__brand-text">CampusConnect<em>Kenya</em></span>
+      </a>
+
+      <nav class="nav__links" id="navLinks">
+        <a href="#about" class="nav__link">About</a>
+        <a href="#opportunities" class="nav__link">Opportunities</a>
+        <a href="#resources" class="nav__link">Resources</a>
+        <a href="#community" class="nav__link">Community</a>
+        <a href="#events" class="nav__link">Events</a>
+        <a href="#faq" class="nav__link">FAQ</a>
+      </nav>
+
+      <div class="nav__actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle theme">
+          <svg class="theme-toggle__sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v3M12 20v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M1 12h3M20 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>
+          <svg class="theme-toggle__moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg>
+        </button>
+        <a href="#opportunities" class="btn btn--primary btn--sm">Find Opportunities</a>
+        <button class="nav__burger" id="navBurger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top" tabindex="-1">
+
+    <!-- ============================================================ -->
+    <!-- HERO SECTION -->
+    <!-- ============================================================ -->
+    <section class="hero" id="hero">
+      <div class="hero__field" aria-hidden="true">
+        <div class="hero__grid"></div>
+        <svg class="hero__route" viewBox="0 0 1000 700" preserveAspectRatio="none" aria-hidden="true">
+          <path id="routePath" class="route-path" d="M60,560 C220,600 260,420 380,400 C520,376 480,180 640,150 C760,126 800,220 930,90" />
+          <circle class="route-node" cx="60" cy="560" r="9" />
+          <circle class="route-node" cx="380" cy="400" r="9" />
+          <circle class="route-node" cx="640" cy="150" r="9" />
+          <circle class="route-node route-node--end" cx="930" cy="90" r="11" />
+        </svg>
+      </div>
+
+      <div class="hero__content">
+        <p class="hero__eyebrow reveal" data-reveal>Route No. 001 &middot; Nairobi — Everywhere</p>
+        <h1 class="hero__title reveal" data-reveal>
+          <span class="hero__title-line">From Campus</span>
+          <span class="hero__title-line hero__title-line--accent">to Career.</span>
+        </h1>
+        <p class="hero__subtitle reveal" data-reveal>
+          One board for every Kenyan student's next stage — internships, attachments,
+          scholarships and jobs from the companies actually hiring. No begging in DMs,
+          no "who do you know." Just receipts, updated daily.
+        </p>
+
+        <div class="hero__cta reveal" data-reveal>
+          <a href="#opportunities" class="btn btn--primary btn--lg ripple">
+            Search Opportunities
+            <svg viewBox="0 0 24 24" class="btn__icon"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#community" class="btn btn--ghost btn--lg ripple">Join the Community</a>
+        </div>
+
+        <div class="hero__proof reveal" data-reveal>
+          <div class="hero__avatars">
+            <span class="hero__avatar" style="--i:0">JW</span>
+            <span class="hero__avatar" style="--i:1">AM</span>
+            <span class="hero__avatar" style="--i:2">NK</span>
+            <span class="hero__avatar" style="--i:3">FO</span>
+          </div>
+          <p><strong>12,400+</strong> students already on board</p>
+        </div>
+      </div>
+
+      <!-- Floating achievement cards -->
+      <div class="hero__floats" aria-hidden="true">
+        <div class="float-card float-card--1">
+          <span class="float-card__icon">🎓</span>
+          <div>
+            <strong>Scholarship secured</strong>
+            <p>Wanjiru M. · Egerton University</p>
+          </div>
+        </div>
+        <div class="float-card float-card--2">
+          <span class="float-card__icon">💼</span>
+          <div>
+            <strong>Internship offer</strong>
+            <p>Safaricom · Data Analytics</p>
+          </div>
+        </div>
+        <div class="float-card float-card--3">
+          <span class="float-card__icon">🚀</span>
+          <div>
+            <strong>Job filled in 6 days</strong>
+            <p>NCBA · Graduate Trainee</p>
+          </div>
+        </div>
+      </div>
+
+      <button class="hero__scroll-cue" id="scrollCue" aria-label="Scroll to About">
+        <span></span>
+      </button>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- ABOUT SECTION -->
+    <!-- ============================================================ -->
+    <section class="about" id="about">
+      <div class="section-inner">
+        <p class="eyebrow reveal" data-reveal>About</p>
+        <h2 class="section-title reveal" data-reveal>Built for the walk between lecture halls and job offers</h2>
+        <p class="section-lead reveal" data-reveal>
+          Every year, thousands of Kenyan graduates leave campus with a degree and zero plan
+          for what comes next. We're the plan — a single, honest place to find real openings
+          from real companies. No middlemen, no fake agents, no "send us KES 500 processing fee."
+        </p>
+
+       
+<img
+  src="Gemini_Generated_Image_ipo64ripo64ripo6.png"
+  alt="Campus students walking on a university pathway"
+  class="about__illustration reveal"
+  ...
+/>
+        <div class="about__grid">
+          <article class="about-card reveal" data-reveal>
+            <span class="about-card__tag">Mission</span>
+            <h3>Close the gap between classroom and career</h3>
+            <p>We give every student — from Kisumu to Kakamega, Mombasa to Meru — equal access
+              to the internships, attachments and jobs that used to depend on who you knew.</p>
+          </article>
+
+          <article class="about-card reveal" data-reveal>
+            <span class="about-card__tag">Vision</span>
+            <h3>A Kenya where no talent is wasted</h3>
+            <p>A country where a first-class degree from any university, public or private,
+              opens the same doors — because the opportunity board is the same for everyone.</p>
+          </article>
+
+          <article class="about-card reveal" data-reveal>
+            <span class="about-card__tag">Goals</span>
+            <h3>10,000 placements by 2027</h3>
+            <p>We're building toward ten thousand verified placements — internships,
+              attachments and full-time roles — tracked from application to offer letter.</p>
+          </article>
+
+          <article class="about-card reveal" data-reveal>
+            <span class="about-card__tag">Why we exist</span>
+            <h3>Because "who do you know" shouldn't decide your career</h3>
+            <p>CampusConnect started as a WhatsApp group sharing internship links between three
+              friends at different universities. It's now a platform built for every campus.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- VIDEO GUIDE SECTION -->
+    <!-- ============================================================ -->
+    <section class="video-guide" id="cv">
+      <div class="section-inner">
+        <div class="video-guide__content">
+          <div>
+            <p class="eyebrow reveal" data-reveal>Video Guide</p>
+            <h2 class="section-title reveal" data-reveal>Helpful YouTube guide for CV support</h2>
+            <p class="section-lead reveal" data-reveal>
+              Add a short video here to walk someone through the CV process, from structure
+              and wording to presentation and confidence.
+            </p>
+          </div>
+
+          <div class="video-guide__frame reveal" data-reveal>
+            <iframe
+              src="https://www.youtube.com/embed/ScMzIvxBSi4"
+              title="YouTube video guide for CV help"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- STATISTICS SECTION -->
+    <!-- ============================================================ -->
+    <section class="stats" id="stats">
+      <div class="section-inner">
+        <div class="stats__grid" id="statsGrid">
+          <!-- Stat cards are rendered by script.js from the STATS array -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- OPPORTUNITIES SECTION -->
+    <!-- ============================================================ -->
+    <section class="opportunities" id="opportunities">
+      <div class="section-inner">
+        <p class="eyebrow reveal" data-reveal>Opportunities</p>
+        <h2 class="section-title reveal" data-reveal>Everything hiring, in one board</h2>
+        <p class="section-lead reveal" data-reveal>
+          Search across internships, attachments, graduate programmes, scholarships, campus
+          jobs, remote work and more. New listings daily — stop refreshing WhatsApp groups.
+        </p>
+
+        <!-- Smart Search -->
+        <div class="search-panel reveal" data-reveal>
+          <div class="search-panel__row">
+            <div class="search-field">
+              <svg viewBox="0 0 24 24" class="search-field__icon"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+              <input type="text" id="searchInput" name="search" placeholder="Search by title, company, skill, county or university…" autocomplete="off" aria-label="Search opportunities" />
+            </div>
+            <select id="sortSelect" class="search-select">
+              <option value="latest">Sort: Latest</option>
+              <option value="deadline">Sort: Deadline</option>
+              <option value="salary">Sort: Salary</option>
+              <option value="popularity">Sort: Popularity</option>
+            </select>
+          </div>
+
+          <div class="filter-row" id="filterRow">
+            <!-- Filter chips rendered by script.js -->
+          </div>
+        </div>
+
+        <p class="opportunities__count" id="resultCount" aria-live="polite"></p>
+
+        <!-- Opportunity Grid -->
+        <div class="opp-grid" id="oppGrid">
+          <!-- Skeleton loaders shown first, then real cards rendered by script.js -->
+        </div>
+
+        <div class="opp-empty" id="oppEmpty" hidden>
+          <p>Nothing here. Yet.</p>
+          <span>That search was a bit too specific — loosen a filter before you rage-quit.</span>
+        </div>
+
+        <div class="opp-load-more">
+          <button class="btn btn--outline" id="loadMoreBtn">Load more opportunities</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- RESOURCES SECTION -->
+    <!-- ============================================================ -->
+    <section class="resources" id="resources">
+      <div class="section-inner">
+        <p class="eyebrow reveal" data-reveal>Resources</p>
+        <h2 class="section-title reveal" data-reveal>Get ready before you apply</h2>
+        <p class="section-lead reveal" data-reveal>Free tools built specifically for the Kenyan job market. Tap a card — no sign-up walls, no "download our app first."</p>
+
+        <div class="resource-grid" id="resourceGrid">
+          <!-- Rendered by script.js from RESOURCES array -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Resource guide modal: populated by script.js with steps + notes for whichever card was clicked -->
+    <div class="resource-modal" id="resourceModal" role="dialog" aria-modal="true" aria-labelledby="resourceModalTitle">
+      <div class="resource-modal__backdrop"></div>
+      <div class="resource-modal__panel">
+        <button class="resource-modal__close" aria-label="Close guide">&times;</button>
+        <div class="resource-modal__head">
+          <span class="resource-modal__icon" id="resourceModalIcon">📄</span>
+          <div>
+            <h3 id="resourceModalTitle">Guide title</h3>
+            <p id="resourceModalDesc">Guide description</p>
+          </div>
+        </div>
+        <ol class="resource-modal__steps" id="resourceModalSteps">
+          <!-- Steps rendered by script.js -->
+        </ol>
+        <div class="resource-modal__notes">
+          <h4>Notes worth remembering</h4>
+          <ul id="resourceModalNotes">
+            <!-- Notes rendered by script.js -->
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Course catalog modal: opened from the "Free Courses" resource card.
+         Lists every course in the FREE_COURSES array with a category filter,
+         and a "Take certification test" button per course. -->
+    <div class="course-modal" id="courseModal" role="dialog" aria-modal="true" aria-labelledby="courseModalTitle">
+      <div class="course-modal__backdrop"></div>
+      <div class="course-modal__panel">
+        <button class="course-modal__close" aria-label="Close course catalog">&times;</button>
+        <div class="course-modal__head">
+          <span class="course-modal__icon">🎓</span>
+          <div>
+            <h3 id="courseModalTitle">Free Courses</h3>
+            <p>All free. Pass the 80% test on any course and get a CampusConnect certificate.</p>
+          </div>
+        </div>
+
+        <div class="course-modal__filters" id="courseFilterRow">
+          <!-- Category chips rendered by script.js -->
+        </div>
+
+        <div class="course-list" id="courseList">
+          <!-- Course rows rendered by script.js from FREE_COURSES -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Course learning modal: Cisco NetAcad-style — read every module's notes,
+         track coverage, and the certification test only unlocks at 100% coverage. -->
+    <div class="learn-modal" id="learnModal" role="dialog" aria-modal="true" aria-labelledby="learnModalTitle">
+      <div class="learn-modal__backdrop"></div>
+      <div class="learn-modal__panel">
+        <button class="learn-modal__close" aria-label="Close course">&times;</button>
+        <div class="learn-modal__head">
+          <h3 id="learnModalTitle">Course title</h3>
+          <p id="learnModalMeta">Category · Provider · Hours</p>
+        </div>
+
+        <div class="learn-progress">
+          <div class="learn-progress__top">
+            <span id="learnProgressLabel">Course coverage — 0 of 0 modules complete</span>
+            <span class="learn-progress__pct" id="learnProgressPct">0%</span>
+          </div>
+          <div class="learn-progress__track"><div class="learn-progress__fill" id="learnProgressFill"></div></div>
+        </div>
+
+        <div class="learn-stepper" id="learnStepper">
+          <!-- Module step buttons rendered by script.js -->
+        </div>
+
+        <div class="learn-module">
+          <h4 id="learnModuleTitle">Module title</h4>
+          <ul class="learn-module__notes" id="learnModuleNotes">
+            <!-- Notes rendered by script.js -->
+          </ul>
+        </div>
+
+        <div class="learn-footer">
+          <button class="btn btn--primary ripple" id="learnMarkBtn">Mark complete &amp; continue</button>
+          <button class="btn btn--primary btn--lg ripple" id="learnTestBtn" hidden>Take certification test →</button>
+          <p class="learn-lock-note" id="learnLockNote"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Certification quiz modal: 5 questions, 80% (4/5) required to pass -->
+    <div class="quiz-modal" id="quizModal" role="dialog" aria-modal="true" aria-labelledby="quizModalTitle">
+      <div class="quiz-modal__backdrop"></div>
+      <div class="quiz-modal__panel">
+        <button class="quiz-modal__close" aria-label="Close test">&times;</button>
+        <p class="quiz-modal__eyebrow">Certification test &middot; Pass mark 80%</p>
+        <h3 id="quizModalTitle">Course title</h3>
+
+        <form id="quizForm">
+          <div id="quizQuestions"><!-- Questions rendered by script.js --></div>
+          <button type="submit" class="btn btn--primary btn--lg ripple">Submit test</button>
+        </form>
+
+        <div class="quiz-result" id="quizResult" hidden>
+          <div class="quiz-result__score" id="quizResultScore">0%</div>
+          <p class="quiz-result__message" id="quizResultMessage"></p>
+          <div class="quiz-result__actions">
+            <button class="btn btn--outline" id="quizRetryBtn">Retake test</button>
+            <button class="btn btn--primary ripple" id="quizCertBtn" hidden>Get my certificate</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Certificate modal: name entry + canvas-generated, downloadable certificate -->
+    <div class="cert-modal" id="certModal" role="dialog" aria-modal="true" aria-labelledby="certModalTitle">
+      <div class="cert-modal__backdrop"></div>
+      <div class="cert-modal__panel">
+        <button class="cert-modal__close" aria-label="Close certificate">&times;</button>
+        <h3 id="certModalTitle">Claim your certificate</h3>
+
+        <form id="certForm" class="cert-form">
+          <div class="form-field">
+            <label for="certName">Full name (as it should appear)</label>
+            <input type="text" id="certName" name="certName" required />
+          </div>
+          <button type="submit" class="btn btn--primary ripple">Generate certificate</button>
+        </form>
+
+        <div class="cert-preview" id="certPreview" hidden>
+          <canvas id="certCanvas" width="1000" height="700"></canvas>
+          <a class="btn btn--primary ripple" id="certDownloadBtn" download="CampusConnect-Certificate.png">Download certificate</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- COMMUNITY SECTION -->
+    <!-- ============================================================ -->
+    <section class="community" id="community">
+      <div class="section-inner">
+        <p class="eyebrow reveal" data-reveal>Community</p>
+        <h2 class="section-title reveal" data-reveal>Students helping students</h2>
+        <p class="section-lead reveal" data-reveal>
+          Ask a question, share a win, or find a mentor in your field — the feed is open to
+          every registered student.
+        </p>
+
+        <div class="community__layout">
+          <div class="community__feed reveal" data-reveal id="feedList">
+            <!-- Feed posts rendered by script.js -->
+          </div>
+
+          <aside class="community__side">
+            <div class="side-card reveal" data-reveal>
+              <h4>Popular clubs</h4>
+              <ul class="side-list side-list--scroll" id="clubList">
+                <!-- Rendered by script.js from CLUBS array -->
+              </ul>
+            </div>
+            <div class="side-card reveal" data-reveal>
+              <h4>Find a mentor</h4>
+              <p>Get matched with an alumnus working in your target field.</p>
+              <button class="btn btn--primary btn--sm ripple" data-toast="Mentor matching request sent!">Request a mentor</button>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Club modal: story + achievements, with a toggleable "apply to join" form -->
+    <div class="club-modal" id="clubModal" role="dialog" aria-modal="true" aria-labelledby="clubModalTitle">
+      <div class="club-modal__backdrop"></div>
+      <div class="club-modal__panel">
+        <button class="club-modal__close" aria-label="Close club details">&times;</button>
+        <div class="club-modal__head">
+          <span class="club-modal__icon" id="clubModalIcon">💻</span>
+          <div>
+            <h3 id="clubModalTitle">Club name</h3>
+            <p id="clubModalMeta">Members · Founded</p>
+          </div>
+        </div>
+
+        <p class="club-modal__story" id="clubModalStory">Club story goes here.</p>
+
+        <div class="club-modal__achievements">
+          <h4>Achievements</h4>
+          <ul id="clubModalAchievements">
+            <!-- Rendered by script.js -->
+          </ul>
+        </div>
+
+        <button class="btn btn--primary btn--lg ripple club-modal__apply-toggle" id="clubApplyToggle">
+          Apply to Join
+        </button>
+
+        <!-- Hidden until "Apply to Join" is clicked -->
+        <form class="club-apply-form" id="clubApplyForm" novalidate hidden>
+          <div class="form-field">
+            <label for="clubApplyName">Full name</label>
+            <input type="text" id="clubApplyName" name="clubApplyName" required />
+            <span class="form-error" data-error-for="clubApplyName" aria-live="polite"></span>
+          </div>
+          <div class="form-field">
+            <label for="clubApplyEmail">Email address</label>
+            <input type="email" id="clubApplyEmail" name="clubApplyEmail" required />
+            <span class="form-error" data-error-for="clubApplyEmail" aria-live="polite"></span>
+          </div>
+          <div class="form-field">
+            <label for="clubApplyReason">Why do you want to join?</label>
+            <textarea id="clubApplyReason" name="clubApplyReason" rows="3" required></textarea>
+            <span class="form-error" data-error-for="clubApplyReason" aria-live="polite"></span>
+          </div>
+          <button type="submit" class="btn btn--primary ripple">Submit application</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- EVENTS SECTION -->
+    <!-- ============================================================ -->
+    <section class="events" id="events">
+      <div class="section-inner">
+        <p class="eyebrow reveal" data-reveal>Events</p>
+        <h2 class="section-title reveal" data-reveal>Where to show up next</h2>
+        <p class="section-lead reveal" data-reveal>Career fairs, hackathons and workshops happening across Kenyan campuses.</p>
+
+        <div class="events-grid" id="eventsGrid">
+          <!-- Rendered by script.js from EVENTS array, with live countdowns -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- TESTIMONIALS SECTION -->
+    <!-- ============================================================ -->
+    <section class="testimonials" id="testimonials">
+      <div class="section-inner">
+        <p class="eyebrow reveal" data-reveal>Stories</p>
+        <h2 class="section-title reveal" data-reveal>It worked for them too</h2>
+
+        <div class="testimonial-slider reveal" data-reveal>
+          <div class="testimonial-track" id="testimonialTrack">
+            <!-- Slides rendered by script.js -->
+          </div>
+          <div class="testimonial-controls">
+            <button id="testimonialPrev" aria-label="Previous testimonial">‹</button>
+            <div class="testimonial-dots" id="testimonialDots"></div>
+            <button id="testimonialNext" aria-label="Next testimonial">›</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- FAQ SECTION -->
+    <!-- ============================================================ -->
+    <section class="faq" id="faq">
+      <div class="section-inner section-inner--narrow">
+        <p class="eyebrow reveal" data-reveal>FAQ</p>
+        <h2 class="section-title reveal" data-reveal>Questions, answered</h2>
+
+        <div class="accordion" id="accordion">
+          <!-- Accordion items rendered by script.js from FAQS array -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- NEWSLETTER SECTION -->
+    <!-- ============================================================ -->
+    <section class="newsletter" id="newsletter">
+      <div class="newsletter__card reveal" data-reveal>
+        <div class="newsletter__text">
+          <h2>Never miss a deadline</h2>
+          <p>One email a week: new internships, scholarships and jobs, sorted by county.</p>
+        </div>
+        <form class="newsletter__form" id="newsletterForm" novalidate>
+          <input type="email" id="newsletterEmail" name="newsletterEmail" placeholder="you@student.ac.ke" required aria-label="Email address for newsletter" />
+          <button type="submit" class="btn btn--primary ripple">Subscribe</button>
+        </form>
+        <p class="newsletter__hint" id="newsletterHint"></p>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CONTACT SECTION -->
+    <!-- ============================================================ -->
+    <section class="contact" id="contact">
+      <div class="section-inner">
+        <p class="eyebrow reveal" data-reveal>Contact</p>
+        <h2 class="section-title reveal" data-reveal>Talk to the team</h2>
+        <p class="section-lead reveal" data-reveal>Partnering as an employer, or spotted an issue? Reach out.</p>
+
+        <div class="contact__layout">
+          <form class="contact-form reveal" data-reveal id="contactForm" novalidate>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="cName">Full name</label>
+                <input type="text" id="cName" name="name" required />
+                <span class="form-error" data-error-for="cName" aria-live="polite"></span>
+              </div>
+              <div class="form-field">
+                <label for="cEmail">Email address</label>
+                <input type="email" id="cEmail" name="email" required />
+                <span class="form-error" data-error-for="cEmail" aria-live="polite"></span>
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="cSubject">Subject</label>
+              <input type="text" id="cSubject" name="subject" required />
+              <span class="form-error" data-error-for="cSubject" aria-live="polite"></span>
+            </div>
+            <div class="form-field">
+              <label for="cMessage">Message</label>
+              <textarea id="cMessage" name="message" rows="5" required></textarea>
+              <span class="form-error" data-error-for="cMessage" aria-live="polite"></span>
+            </div>
+            <button type="submit" class="btn btn--primary btn--lg ripple">Send message</button>
+          </form>
+
+          <div class="contact__info reveal" data-reveal>
+            <div class="info-card">
+              <h4>Email</h4>
+              <p>joelwambuamakau12@gmail.com</p>
+            </div>
+            <div class="info-card">
+              <h4>Office</h4>
+              <p>Nairobi.</p>
+            </div>
+            <div class="info-card">
+              <h4>Support hours</h4>
+              <p>Mon – Fri, 8:00 AM – 6:00 PM EAT"</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================ -->
+  <!-- FOOTER -->
+  <!-- ============================================================ -->
+  <footer class="footer">
+    <div class="section-inner footer__grid">
+      <div class="footer__brand">
+        <a href="#top" class="nav__brand">
+          <span class="nav__brand-mark">CC</span>
+          <span class="nav__brand-text">CampusConnect<em>Kenya</em></span>
+        </a>
+        <p>We built on what's next. No middlemen, no drama.</p>
+        <div class="footer__socials">
+          <a href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="X / Twitter">𝕏</a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">◎</a>
+          <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="TikTok">♪</a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h4>Platform</h4>
+        <a href="#opportunities">Opportunities</a>
+        <a href="#resources">Resources</a>
+        <a href="#community">Community</a>
+        <a href="#events">Events</a>
+      </div>
+
+      <div class="footer__col">
+        <h4>Company</h4>
+        <a href="#about">About</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+        <a href="#contact">Careers at CampusConnect</a>
+      </div>
+
+      <div class="footer__col">
+        <h4>Get in touch</h4>
+        <a href="mailto:joelwambuamakau12@gmail.com">joelwambuamakau12@gmail.com</a>
+        <a href="tel:+254700000000">+254 700 000 000</a>
+        <span class="footer__location"> Nairobi.</span>
+      </div>
+    </div>
+    <div class="footer__bottom section-inner">
+      <p>&copy; <span id="year"></span> CampusConnect Kenya. All rights reserved.</p>
+      <p>Built by student, for students.</p>
+    </div>
+  </footer>
+
+  <!-- ============================================================ -->
+  <!-- FLOATING ACTION BUTTONS -->
+  <!-- ============================================================ -->
+  <div class="fab-stack">
+    <button class="fab fab--top" id="backToTop" aria-label="Back to top" hidden>
+      <svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+    </button>
+    <a href="#opportunities" class="fab fab--main" aria-label="Search opportunities">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+    </a>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
